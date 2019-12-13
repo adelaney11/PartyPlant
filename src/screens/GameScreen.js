@@ -9,17 +9,16 @@ const GameScreen = props => {
     const [path, setPath] = useState(require('../assets/jumping-plant.gif'));
     const [counter, setCount] = useState(0)
     const [command, setCommand] = useState('swipe to dance!')
-    const [isValidMove, setIsValidMove] = useState(true)
+    const [isValidMove, setIsValidMove] = useState(false)
 
 
-    changeCommand = () => {
-        setIsValidMove(false)
+    changeCommand = (isValidMove) => {
         setCommand(commands[Math.floor(Math.random() * commands.length)])
         setTimeout(function(){
             if (isValidMove === false) {
                 alert("you took too long!")
                 props.navigation.navigate("Home")
-            }
+            } 
         }, 4000);
     }
 
